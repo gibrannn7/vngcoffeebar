@@ -48,7 +48,7 @@ const Home = () => {
         <meta property="og:description" content="Nikmati kopi, makanan, dan live music di tempat paling hangat dan elegan di Serang." />
       </Helmet>
 
-      <Hero 
+      <Hero
         title="COFFEE & FOODBAR"
         subtitle="ngoepi hepi - mangan hepi - always hepi"
         ctaText="Explore Menu"
@@ -56,16 +56,16 @@ const Home = () => {
         backgroundImage="/src/assets/coffees/asset4.jpg"
       />
 
-      <Section 
-        id="why-vng" 
-        title="Why VnG?" 
+      <Section
+        id="why-vng"
+        title="Why VnG?"
         subtitle="Perpaduan nikmat kopi, kelezatan makanan, dan live music setiap hari."
         className="relative py-20"
       >
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {whyVnGItems.map((item, index) => (
-            <div 
-              key={index} 
+            <div
+              key={index}
               className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-center border border-white/20 hover:bg-white/20 transition-all duration-300"
               data-aos="fade-up"
               data-aos-delay={index * 100}
@@ -80,28 +80,28 @@ const Home = () => {
         </div>
       </Section>
 
-      <Section 
-        id="atmosphere" 
+      <Section
+        id="atmosphere"
         className="relative"
-        bgImage="/src/assets/events/asset2.jpg"
+        bgImage="/src/assets/events/assets2.jpg"
         darkOverlay={true}
       >
         <div className="max-w-4xl mx-auto text-center">
           <div className="mb-6">
             <Sparkles className="text-accent-gold mx-auto mb-4" size={50} />
           </div>
-          <h2 
+          <h2
             className="text-3xl md:text-4xl font-bold text-white mb-6"
             data-aos="fade-up"
           >
             Sebuah Tempat yang Istimewa
           </h2>
-          <p 
+          <p
             className="text-xl text-gray-200 mb-8"
             data-aos="fade-up"
             data-aos-delay="100"
           >
-            VnG Coffee & Foodbar adalah tempat di mana kopi, makanan, dan musik berpadu dalam kebahagiaan. 
+            VnG Coffee & Foodbar adalah tempat di mana kopi, makanan, dan musik berpadu dalam kebahagiaan.
             Suasana hangat dan nyaman kami menciptakan pengalaman yang tak terlupakan bagi setiap pengunjung.
           </p>
         </div>

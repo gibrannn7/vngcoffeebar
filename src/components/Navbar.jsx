@@ -30,8 +30,8 @@ const Navbar = () => {
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-primary-brown/90 backdrop-blur-sm py-2' : 'bg-transparent py-4'}`}>
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <Link to="/" className="text-accent-gold font-bold text-xl md:text-2xl">
-          VnG COFFEE & FOODBAR
+        <Link to="/" className="flex items-center">
+          <img src="/src/assets/logo/logo-vng.jpg" alt="VnG Logo" className="h-12 w-12 rounded-full transition-transform duration-300 hover:scale-110" />
         </Link>
 
         {/* Desktop Navigation */}
@@ -40,7 +40,7 @@ const Navbar = () => {
             <Link
               key={link.name}
               to={link.path}
-              className="text-white hover:text-accent-gold transition-colors duration-300 font-medium"
+              className="text-white hover:text-accent-gold transition-colors duration-300 font-medium text-lg"
             >
               {link.name}
             </Link>
@@ -52,7 +52,7 @@ const Navbar = () => {
           className="md:hidden text-white"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
 
@@ -64,7 +64,7 @@ const Navbar = () => {
               <Link
                 key={link.name}
                 to={link.path}
-                className="text-white hover:text-accent-gold transition-colors duration-300 py-2 border-b border-primary-brown/30"
+                className="text-white text-lg text-center hover:text-accent-gold transition-colors duration-300 py-3 border-b border-white/10"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {link.name}

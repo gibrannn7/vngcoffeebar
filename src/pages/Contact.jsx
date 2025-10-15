@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { MapPin, Phone, Clock, Mail } from 'lucide-react';
+import { MapPin, Phone, Clock, Mail, Send, ThumbsUp } from 'lucide-react';
 import GoogleMap from '../components/GoogleMap';
 import Section from '../components/Section';
 import AOS from 'aos';
@@ -33,13 +33,13 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simulate form submission
     setTimeout(() => {
       setIsSubmitting(false);
       setSubmitSuccess(true);
       setFormData({ name: '', email: '', message: '' });
-      
+
       // Reset success message after 5 seconds
       setTimeout(() => {
         setSubmitSuccess(false);
@@ -55,15 +55,15 @@ const Contact = () => {
       </Helmet>
 
       <Section id="contact" className="pt-32 pb-16">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h1 
+            <h1
               className="text-4xl md:text-5xl font-bold text-white mb-4"
               data-aos="fade-up"
             >
               Contact Us
             </h1>
-            <p 
+            <p
               className="text-xl text-gray-200 max-w-2xl mx-auto"
               data-aos="fade-up"
               data-aos-delay="100"
@@ -73,13 +73,14 @@ const Contact = () => {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {/* Left Column: Info and Map */}
             <div className="space-y-8">
-              <div 
+              <div
                 className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20"
                 data-aos="fade-right"
               >
                 <div className="flex items-start mb-6">
-                  <MapPin className="text-accent-gold mt-1 mr-4" size={24} />
+                  <MapPin className="text-accent-gold mt-1 mr-4 flex-shrink-0" size={24} />
                   <div>
                     <h3 className="text-xl font-bold text-white mb-2">Alamat</h3>
                     <p className="text-gray-200">
@@ -114,98 +115,89 @@ const Contact = () => {
                     </div>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start">
                   <Mail className="text-accent-gold mt-1 mr-4" size={24} />
                   <div>
                     <h3 className="text-xl font-bold text-white mb-2">Email</h3>
-                    <p className="text-gray-200">vngcoffeebar@example.com</p>
+                    <a href="mailto:fatihmaulana8@gmail.com" className="text-gray-200 hover:text-accent-gold transition-colors">fatihmaulana8@gmail.com</a>
                   </div>
                 </div>
               </div>
 
-              <div 
-                className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20"
-                data-aos="fade-right"
-                data-aos-delay="200"
-              >
-                <h3 className="text-xl font-bold text-white mb-4">Follow Us</h3>
-                <div className="flex space-x-4">
-                  <a 
-                    href="https://instagram.com/vien.gh" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="bg-accent-gold text-primary-brown w-10 h-10 rounded-full flex items-center justify-center hover:opacity-90 transition-opacity"
-                  >
-                    IG
-                  </a>
-                </div>
-              </div>
+               <GoogleMap
+                address="Jl. Kolonel Tubagus Suwandi, Serang, Kec. Serang, Kota Serang, Banten 42116"
+              />
             </div>
 
-            <div 
+            {/* Right Column: Form */}
+            <div
               className="space-y-8"
               data-aos="fade-left"
             >
-              <GoogleMap 
-                address="Jl. Kolonel Tubagus Suwandi, Serang, Kec. Serang, Kota Serang, Banten 42116"
-              />
+              <form onSubmit={handleSubmit} className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 sticky top-28">
+                <h3 className="text-2xl font-bold text-white mb-6">Kirim Pesan</h3>
 
-              <form onSubmit={handleSubmit} className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-                <h3 className="text-xl font-bold text-white mb-6">Kirim Pesan</h3>
-                
                 {submitSuccess && (
-                  <div className="mb-4 p-3 bg-green-500/30 text-green-200 rounded-lg">
-                    Pesan Anda telah terkirim! Kami akan segera menghubungi Anda.
+                  <div className="mb-4 p-4 bg-green-900/50 text-green-100 border border-green-400/50 rounded-lg flex items-center shadow-lg">
+                    <ThumbsUp className="mr-3 text-green-300" size={20} />
+                    <div>
+                        <p className="font-bold">Pesan Terkirim!</p>
+                        <p className="text-sm">Terima kasih telah menghubungi kami. Kami akan segera merespon Anda.</p>
+                    </div>
                   </div>
                 )}
-                
-                <div className="space-y-4">
+
+                <div className="space-y-6">
                   <div>
-                    <label htmlFor="name" className="block text-gray-200 mb-2">Nama</label>
+                    <label htmlFor="name" className="block text-gray-200 mb-2 font-medium">Nama</label>
                     <input
                       type="text"
                       id="name"
                       name="name"
                       value={formData.name}
                       onChange={handleInputChange}
-                      className="w-full p-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent-gold"
+                      className="w-full p-3 rounded-lg bg-white/10 border-2 border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent-gold focus:border-transparent transition-all"
                       required
+                      placeholder="Nama Anda"
                     />
                   </div>
-                  
+
                   <div>
-                    <label htmlFor="email" className="block text-gray-200 mb-2">Email</label>
+                    <label htmlFor="email" className="block text-gray-200 mb-2 font-medium">Email</label>
                     <input
                       type="email"
                       id="email"
                       name="email"
                       value={formData.email}
                       onChange={handleInputChange}
-                      className="w-full p-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent-gold"
+                      className="w-full p-3 rounded-lg bg-white/10 border-2 border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent-gold focus:border-transparent transition-all"
                       required
+                      placeholder="Email Anda"
                     />
                   </div>
-                  
+
                   <div>
-                    <label htmlFor="message" className="block text-gray-200 mb-2">Pesan</label>
+                    <label htmlFor="message" className="block text-gray-200 mb-2 font-medium">Pesan</label>
                     <textarea
                       id="message"
                       name="message"
                       value={formData.message}
                       onChange={handleInputChange}
                       rows="5"
-                      className="w-full p-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent-gold"
+                      className="w-full p-3 rounded-lg bg-white/10 border-2 border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent-gold focus:border-transparent transition-all"
                       required
+                      placeholder="Tulis pesan Anda di sini..."
                     ></textarea>
                   </div>
-                  
+
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-accent-gold hover:bg-primary-brown text-primary-brown hover:text-accent-gold font-bold py-3 px-6 rounded-lg transition-all duration-300 disabled:opacity-50"
+                    className="w-full bg-accent-gold hover:bg-yellow-600 text-primary-brown font-bold py-3 px-6 rounded-lg transition-all duration-300 disabled:opacity-50 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-accent-gold focus:ring-opacity-50"
                   >
                     {isSubmitting ? 'Mengirim...' : 'Kirim Pesan'}
+                    {!isSubmitting && <Send className="ml-2" size={18}/>}
                   </button>
                 </div>
               </form>
@@ -214,26 +206,26 @@ const Contact = () => {
         </div>
       </Section>
 
-      <Section 
+       <Section
         className="relative py-20"
         bgImage="/src/assets/events/asset3.jpg"
         darkOverlay={true}
       >
         <div className="max-w-3xl mx-auto text-center">
-          <h2 
+          <h2
             className="text-3xl font-bold text-white mb-6"
             data-aos="fade-up"
           >
             Siap Mengunjungi VnG?
           </h2>
-          <p 
+          <p
             className="text-xl text-gray-200 mb-8"
             data-aos="fade-up"
             data-aos-delay="100"
           >
             Buat reservasi sekarang dan nikmati pengalaman kuliner terbaik bersama kami
           </p>
-          <a 
+          <a
             href="https://wa.me/628111288945"
             className="inline-block bg-accent-gold hover:bg-primary-brown text-primary-brown hover:text-accent-gold font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 mr-4"
             data-aos="fade-up"
@@ -241,7 +233,7 @@ const Contact = () => {
           >
             WhatsApp Reservasi
           </a>
-          <a 
+          <a
             href="https://wa.me/6287776620926"
             className="inline-block bg-primary-brown hover:bg-accent-gold text-accent-gold hover:text-primary-brown font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 border-2 border-accent-gold"
             data-aos="fade-up"

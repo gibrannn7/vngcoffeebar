@@ -1,4 +1,3 @@
-// src/pages/Menu.jsx
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import Section from '../components/Section';
@@ -232,7 +231,7 @@ const Menu = () => {
                 <div className="text-center mt-8">
                   <button
                     onClick={() => setShowAllMainCourses(!showAllMainCourses)}
-                    className="bg-accent-gold hover:bg-primary-brown text-primary-brown hover:text-accent-gold font-bold py-2 px-4 rounded"
+                    className="bg-accent-gold hover:bg-primary-brown text-primary-brown hover:text-accent-gold font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-accent-gold focus:ring-opacity-50"
                   >
                     {showAllMainCourses ? 'Lihat Lebih Sedikit' : 'Lihat Lebih Banyak'}
                   </button>
@@ -257,7 +256,7 @@ const Menu = () => {
                 <div className="text-center mt-8">
                   <button
                     onClick={() => setShowAllAppetizers(!showAllAppetizers)}
-                    className="bg-accent-gold hover:bg-primary-brown text-primary-brown hover:text-accent-gold font-bold py-2 px-4 rounded"
+                    className="bg-accent-gold hover:bg-primary-brown text-primary-brown hover:text-accent-gold font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-accent-gold focus:ring-opacity-50"
                   >
                     {showAllAppetizers ? 'Lihat Lebih Sedikit' : 'Lihat Lebih Banyak'}
                   </button>
@@ -282,7 +281,7 @@ const Menu = () => {
                 <div className="text-center mt-8">
                   <button
                     onClick={() => setShowAllDrinks(!showAllDrinks)}
-                    className="bg-accent-gold hover:bg-primary-brown text-primary-brown hover:text-accent-gold font-bold py-2 px-4 rounded"
+                    className="bg-accent-gold hover:bg-primary-brown text-primary-brown hover:text-accent-gold font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-accent-gold focus:ring-opacity-50"
                   >
                     {showAllDrinks ? 'Lihat Lebih Sedikit' : 'Lihat Lebih Banyak'}
                   </button>
