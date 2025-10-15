@@ -6,11 +6,11 @@ const Tabs = ({ tabs, children }) => {
   return (
     <div>
       {/* Tab Navigation */}
-      <div className="flex flex-wrap border-b border-primary-brown/30 mb-8">
+      <div className="flex flex-wrap justify-center border-b border-primary-brown/30 mb-8">
         {tabs.map((tab) => (
           <button
             key={tab.id}
-            className={`px-6 py-3 font-medium text-lg relative ${
+            className={`px-6 py-3 font-medium text-lg relative focus:outline-none mx-2 my-1 ${
               activeTab === tab.id
                 ? 'text-accent-gold'
                 : 'text-gray-600 hover:text-accent-gold'

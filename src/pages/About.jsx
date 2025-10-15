@@ -127,7 +127,7 @@ const About = () => {
         </div>
       </Section>
 
-      <Section className="py-20">
+      <Section className="py-20 bg-black/20">
         <div className="max-w-4xl mx-auto text-center">
           <h2 
             className="text-3xl font-bold text-accent-gold mb-12"
@@ -165,4 +165,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default About; 

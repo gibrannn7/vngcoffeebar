@@ -1,5 +1,5 @@
 // src/pages/Menu.jsx
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import Section from '../components/Section';
 import Card from '../components/Card';
@@ -10,6 +10,10 @@ import 'aos/dist/aos.css';
 const toUrl = (relativePath) => new URL(relativePath, import.meta.url).href;
 
 const Menu = () => {
+  const [showAllMainCourses, setShowAllMainCourses] = useState(false);
+  const [showAllAppetizers, setShowAllAppetizers] = useState(false);
+  const [showAllDrinks, setShowAllDrinks] = useState(false);
+
   useEffect(() => {
     AOS.init({
       duration: 900,
@@ -31,7 +35,7 @@ const Menu = () => {
       name: 'Ayam Goreng Kremes',
       description: 'Ayam goreng renyah dengan kremesan gurih',
       price: 'Rp 45.000',
-      image: toUrl('../assets/menu/maincourse/ayam kremes.jpeg'),
+      image: toUrl('../assets/menu/maincourse/ayam katsu.jpeg'),
     },
     {
       id: 'mc-ayam-bakar',
@@ -212,45 +216,81 @@ const Menu = () => {
 
           <Tabs tabs={menuTabs}>
             {/* Main Course */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {mainCourseItems.map((item) => (
-                <Card
-                  key={item.id}
-                  title={item.name}
-                  description={item.description}
-                  price={item.price}
-                  image={item.image}
-                  className="bg-white/6 backdrop-blur border border-white/10"
-                />
-              ))}
+            <div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {(showAllMainCourses ? mainCourseItems : mainCourseItems.slice(0, 6)).map((item) => (
+                  <Card
+                    key={item.id}
+                    title={item.name}
+                    description={item.description}
+                    price={item.price}
+                    image={item.image}
+                    className="bg-white/6 backdrop-blur border border-white/10"
+                  />
+                ))}
+              </div>
+              {mainCourseItems.length > 6 && (
+                <div className="text-center mt-8">
+                  <button
+                    onClick={() => setShowAllMainCourses(!showAllMainCourses)}
+                    className="bg-accent-gold hover:bg-primary-brown text-primary-brown hover:text-accent-gold font-bold py-2 px-4 rounded"
+                  >
+                    {showAllMainCourses ? 'Lihat Lebih Sedikit' : 'Lihat Lebih Banyak'}
+                  </button>
+                </div>
+              )}
             </div>
 
             {/* Appetizer */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {appetizerItems.map((item) => (
-                <Card
-                  key={item.id}
-                  title={item.name}
-                  description={item.description}
-                  price={item.price}
-                  image={item.image}
-                  className="bg-white/6 backdrop-blur border border-white/10"
-                />
-              ))}
+            <div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {(showAllAppetizers ? appetizerItems : appetizerItems.slice(0, 6)).map((item) => (
+                  <Card
+                    key={item.id}
+                    title={item.name}
+                    description={item.description}
+                    price={item.price}
+                    image={item.image}
+                    className="bg-white/6 backdrop-blur border border-white/10"
+                  />
+                ))}
+              </div>
+              {appetizerItems.length > 6 && (
+                <div className="text-center mt-8">
+                  <button
+                    onClick={() => setShowAllAppetizers(!showAllAppetizers)}
+                    className="bg-accent-gold hover:bg-primary-brown text-primary-brown hover:text-accent-gold font-bold py-2 px-4 rounded"
+                  >
+                    {showAllAppetizers ? 'Lihat Lebih Sedikit' : 'Lihat Lebih Banyak'}
+                  </button>
+                </div>
+              )}
             </div>
 
             {/* Drinks */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {drinkItems.map((item) => (
-                <Card
-                  key={item.id}
-                  title={item.name}
-                  description={item.description}
-                  price={item.price}
-                  image={item.image}
-                  className="bg-white/6 backdrop-blur border border-white/10"
-                />
-              ))}
+            <div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {(showAllDrinks ? drinkItems : drinkItems.slice(0, 6)).map((item) => (
+                  <Card
+                    key={item.id}
+                    title={item.name}
+                    description={item.description}
+                    price={item.price}
+                    image={item.image}
+                    className="bg-white/6 backdrop-blur border border-white/10"
+                  />
+                ))}
+              </div>
+              {drinkItems.length > 6 && (
+                <div className="text-center mt-8">
+                  <button
+                    onClick={() => setShowAllDrinks(!showAllDrinks)}
+                    className="bg-accent-gold hover:bg-primary-brown text-primary-brown hover:text-accent-gold font-bold py-2 px-4 rounded"
+                  >
+                    {showAllDrinks ? 'Lihat Lebih Sedikit' : 'Lihat Lebih Banyak'}
+                  </button>
+                </div>
+              )}
             </div>
           </Tabs>
         </div>
