@@ -35,7 +35,7 @@ const Menu = () => {
       name: 'Ayam Goreng Kremes',
       description: 'Ayam goreng renyah dengan kremesan gurih',
       price: 'Rp 45.000',
-      image: toUrl('../assets/menu/maincourse/ayam katsu.jpeg'),
+      image: toUrl('../assets/menu/maincourse/ayam kremes.jpeg'),
     },
     {
       id: 'mc-ayam-bakar',
@@ -225,7 +225,6 @@ const Menu = () => {
                     description={item.description}
                     price={item.price}
                     image={item.image}
-                    className="bg-white/6 backdrop-blur border border-white/10"
                   />
                 ))}
               </div>
@@ -251,7 +250,6 @@ const Menu = () => {
                     description={item.description}
                     price={item.price}
                     image={item.image}
-                    className="bg-white/6 backdrop-blur border border-white/10"
                   />
                 ))}
               </div>
@@ -277,7 +275,6 @@ const Menu = () => {
                     description={item.description}
                     price={item.price}
                     image={item.image}
-                    className="bg-white/6 backdrop-blur border border-white/10"
                   />
                 ))}
               </div>
