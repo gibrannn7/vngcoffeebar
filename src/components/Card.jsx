@@ -1,28 +1,28 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const Card = ({ 
-  title, 
-  description, 
-  price, 
-  image, 
-  alt, 
-  category 
+const Card = ({
+  title,
+  description,
+  price,
+  image,
+  alt,
+  category
 }) => {
   return (
     <motion.div
-      className="bg-primary-brown/50 backdrop-blur-sm border border-white/10 rounded-2xl shadow-lg overflow-hidden group"
-      whileHover={{ 
-        y: -8, 
-        boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1)' 
+      className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl shadow-lg overflow-hidden group"
+      whileHover={{
+        y: -8,
+        boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1)'
       }}
       transition={{ duration: 0.3 }}
     >
       {image && (
         <div className="relative overflow-hidden h-56">
-          <img 
-            src={image} 
-            alt={alt || title} 
+          <img
+            src={image}
+            alt={alt || title}
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
