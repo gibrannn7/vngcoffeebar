@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from "react";
-import { Helmet } from "react-helmet-async";
-import { MapPin, Phone, Clock, Mail, Send, ThumbsUp } from "lucide-react";
-import GoogleMap from "../components/GoogleMap";
-import Section from "../components/Section";
-import AOS from "aos";
-import "aos/dist/aos.css";
+import React, { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
+import { MapPin, Phone, Clock, Mail, Send, ThumbsUp } from 'lucide-react';
+import GoogleMap from '../components/GoogleMap';
+import Section from '../components/Section';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
+    name: '',
+    email: '',
+    message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
@@ -24,9 +24,9 @@ const Contact = () => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({
+    setFormData(prev => ({
       ...prev,
-      [name]: value,
+      [name]: value
     }));
   };
 
@@ -38,7 +38,7 @@ const Contact = () => {
     setTimeout(() => {
       setIsSubmitting(false);
       setSubmitSuccess(true);
-      setFormData({ name: "", email: "", message: "" });
+      setFormData({ name: '', email: '', message: '' });
 
       // Reset success message after 5 seconds
       setTimeout(() => {
@@ -50,13 +50,8 @@ const Contact = () => {
   return (
     <div className="bg-primary-brown">
       <Helmet>
-        <title>
-          Contact VnG Coffee & Foodbar | Serang’s Premium Cafe Experience
-        </title>
-        <meta
-          name="description"
-          content="Get in touch with VnG Coffee & Foodbar in Serang. Find our location, hours, and contact information."
-        />
+        <title>Contact VnG Coffee & Foodbar | Serang’s Premium Cafe Experience</title>
+        <meta name="description" content="Get in touch with VnG Coffee & Foodbar in Serang. Find our location, hours, and contact information." />
       </Helmet>
 
       <Section id="contact" className="pt-32 pb-16">
@@ -85,17 +80,11 @@ const Contact = () => {
                 data-aos="fade-right"
               >
                 <div className="flex items-start mb-6">
-                  <MapPin
-                    className="text-accent-gold mt-1 mr-4 flex-shrink-0"
-                    size={24}
-                  />
+                  <MapPin className="text-accent-gold mt-1 mr-4 flex-shrink-0" size={24} />
                   <div>
-                    <h3 className="text-xl font-bold text-white mb-2">
-                      Alamat
-                    </h3>
+                    <h3 className="text-xl font-bold text-white mb-2">Alamat</h3>
                     <p className="text-gray-200">
-                      Jl. Kolonel Tubagus Suwandi, Serang, Kec. Serang, Kota
-                      Serang, Banten 42116
+                      Jl. Kolonel Tubagus Suwandi, Serang, Kec. Serang, Kota Serang, Banten 42116
                     </p>
                   </div>
                 </div>
@@ -103,20 +92,12 @@ const Contact = () => {
                 <div className="flex items-start mb-6">
                   <Phone className="text-accent-gold mt-1 mr-4" size={24} />
                   <div>
-                    <h3 className="text-xl font-bold text-white mb-2">
-                      Kontak
-                    </h3>
+                    <h3 className="text-xl font-bold text-white mb-2">Kontak</h3>
                     <div className="space-y-2">
-                      <a
-                        href="https://wa.me/628111288945"
-                        className="block text-gray-200 hover:text-accent-gold transition-colors"
-                      >
+                      <a href="https://wa.me/628111288945" className="block text-gray-200 hover:text-accent-gold transition-colors">
                         +62 811-1288-945
                       </a>
-                      <a
-                        href="https://wa.me/6287776620926"
-                        className="block text-gray-200 hover:text-accent-gold transition-colors"
-                      >
+                      <a href="https://wa.me/6287776620926" className="block text-gray-200 hover:text-accent-gold transition-colors">
                         +62 877-7662-0926
                       </a>
                     </div>
@@ -126,9 +107,7 @@ const Contact = () => {
                 <div className="flex items-start mb-6">
                   <Clock className="text-accent-gold mt-1 mr-4" size={24} />
                   <div>
-                    <h3 className="text-xl font-bold text-white mb-2">
-                      Jam Operasional
-                    </h3>
+                    <h3 className="text-xl font-bold text-white mb-2">Jam Operasional</h3>
                     <div className="space-y-2 text-gray-200">
                       <p>Live Music Everyday</p>
                       <p>Sunday - Friday : 11.00 - 23.00</p>
@@ -141,50 +120,37 @@ const Contact = () => {
                   <Mail className="text-accent-gold mt-1 mr-4" size={24} />
                   <div>
                     <h3 className="text-xl font-bold text-white mb-2">Email</h3>
-                    <a
-                      href="mailto:vng.ofc@gmail.com"
-                      className="text-gray-200 hover:text-accent-gold transition-colors"
-                    >
-                      vng.ofc@gmail.com
-                    </a>
+                    <a href="mailto:fatihmaulana8@gmail.com" className="text-gray-200 hover:text-accent-gold transition-colors">fatihmaulana8@gmail.com</a>
                   </div>
                 </div>
               </div>
 
-              <GoogleMap address="Jl. Kolonel Tubagus Suwandi, Serang, Kec. Serang, Kota Serang, Banten 42116" />
+               <GoogleMap
+                address="Jl. Kolonel Tubagus Suwandi, Serang, Kec. Serang, Kota Serang, Banten 42116"
+              />
             </div>
 
             {/* Right Column: Form */}
-            <div className="space-y-8" data-aos="fade-left">
-              <form
-                onSubmit={handleSubmit}
-                className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 sticky top-28"
-              >
-                <h3 className="text-2xl font-bold text-white mb-6">
-                  Kirim Pesan
-                </h3>
+            <div
+              className="space-y-8"
+              data-aos="fade-left"
+            >
+              <form onSubmit={handleSubmit} className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 sticky top-28">
+                <h3 className="text-2xl font-bold text-white mb-6">Kirim Pesan</h3>
 
                 {submitSuccess && (
                   <div className="mb-4 p-4 bg-green-900/50 text-green-100 border border-green-400/50 rounded-lg flex items-center shadow-lg">
                     <ThumbsUp className="mr-3 text-green-300" size={20} />
                     <div>
-                      <p className="font-bold">Pesan Terkirim!</p>
-                      <p className="text-sm">
-                        Terima kasih telah menghubungi kami. Kami akan segera
-                        merespon Anda.
-                      </p>
+                        <p className="font-bold">Pesan Terkirim!</p>
+                        <p className="text-sm">Terima kasih telah menghubungi kami. Kami akan segera merespon Anda.</p>
                     </div>
                   </div>
                 )}
 
                 <div className="space-y-6">
                   <div>
-                    <label
-                      htmlFor="name"
-                      className="block text-gray-200 mb-2 font-medium"
-                    >
-                      Nama
-                    </label>
+                    <label htmlFor="name" className="block text-gray-200 mb-2 font-medium">Nama</label>
                     <input
                       type="text"
                       id="name"
@@ -198,12 +164,7 @@ const Contact = () => {
                   </div>
 
                   <div>
-                    <label
-                      htmlFor="email"
-                      className="block text-gray-200 mb-2 font-medium"
-                    >
-                      Email
-                    </label>
+                    <label htmlFor="email" className="block text-gray-200 mb-2 font-medium">Email</label>
                     <input
                       type="email"
                       id="email"
@@ -217,12 +178,7 @@ const Contact = () => {
                   </div>
 
                   <div>
-                    <label
-                      htmlFor="message"
-                      className="block text-gray-200 mb-2 font-medium"
-                    >
-                      Pesan
-                    </label>
+                    <label htmlFor="message" className="block text-gray-200 mb-2 font-medium">Pesan</label>
                     <textarea
                       id="message"
                       name="message"
@@ -240,8 +196,8 @@ const Contact = () => {
                     disabled={isSubmitting}
                     className="w-full bg-accent-gold hover:bg-yellow-600 text-primary-brown font-bold py-3 px-6 rounded-lg transition-all duration-300 disabled:opacity-50 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-accent-gold focus:ring-opacity-50"
                   >
-                    {isSubmitting ? "Mengirim..." : "Kirim Pesan"}
-                    {!isSubmitting && <Send className="ml-2" size={18} />}
+                    {isSubmitting ? 'Mengirim...' : 'Kirim Pesan'}
+                    {!isSubmitting && <Send className="ml-2" size={18}/>}
                   </button>
                 </div>
               </form>
@@ -250,13 +206,16 @@ const Contact = () => {
         </div>
       </Section>
 
-      <Section
+       <Section
         className="relative py-20"
         bgImage="/src/assets/events/asset3.jpg"
         darkOverlay={true}
       >
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl font-bold text-white mb-6" data-aos="fade-up">
+          <h2
+            className="text-3xl font-bold text-white mb-6"
+            data-aos="fade-up"
+          >
             Siap Mengunjungi VnG?
           </h2>
           <p
@@ -264,25 +223,26 @@ const Contact = () => {
             data-aos="fade-up"
             data-aos-delay="100"
           >
-            Buat reservasi sekarang dan nikmati pengalaman kuliner terbaik
-            bersama kami
+            Buat reservasi sekarang dan nikmati pengalaman kuliner terbaik bersama kami
           </p>
-          <a
-            href="https://wa.me/628111288945"
-            className="inline-block bg-accent-gold hover:bg-primary-brown text-primary-brown hover:text-accent-gold font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 mr-4"
-            data-aos="fade-up"
-            data-aos-delay="200"
-          >
-            WhatsApp Reservasi
-          </a>
-          <a
-            href="https://wa.me/6287776620926"
-            className="inline-block bg-primary-brown hover:bg-accent-gold text-accent-gold hover:text-primary-brown font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 border-2 border-accent-gold"
-            data-aos="fade-up"
-            data-aos-delay="300"
-          >
-            WhatsApp Alternatif
-          </a>
+          <div className='flex flex-col md:flex-row md:justify-center gap-4'>
+            <a
+              href="https://wa.me/628111288945"
+              className="block w-full md:w-auto bg-accent-gold hover:bg-primary-brown text-primary-brown hover:text-accent-gold font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              WhatsApp Reservasi
+            </a>
+            <a
+              href="https://wa.me/6287776620926"
+              className="block w-full md:w-auto bg-primary-brown hover:bg-accent-gold text-accent-gold hover:text-primary-brown font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 border-2 border-accent-gold"
+              data-aos="fade-up"
+              data-aos-delay="300"
+            >
+              WhatsApp Alternatif
+            </a>
+          </div>
         </div>
       </Section>
     </div>
